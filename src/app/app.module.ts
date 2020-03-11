@@ -19,13 +19,17 @@ import { LayoutModule } from 'app/layout/layout.module';
 import { SampleModule } from 'app/main/sample/sample.module';
 
 const appRoutes: Routes = [
+    // {
+    //     path        : 'auth',
+    //     loadChildren: './authentication/authentication.module#AuthenticationModule'
+    // },
     {
-        path        : 'auth',
-        loadChildren: './authentication/authentication.module#AuthenticationModule'
+        path: 'form',
+        loadChildren: './form/form.module#FormModule'
     },
     {
-        path      : '**',
-        redirectTo: 'sample'
+        path: '**',
+        redirectTo: 'form'
     }
 ];
 
@@ -33,7 +37,7 @@ const appRoutes: Routes = [
     declarations: [
         AppComponent
     ],
-    imports     : [
+    imports: [
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
@@ -59,10 +63,9 @@ const appRoutes: Routes = [
         LayoutModule,
         SampleModule
     ],
-    bootstrap   : [
+    bootstrap: [
         AppComponent
     ]
 })
-export class AppModule
-{
+export class AppModule {
 }
