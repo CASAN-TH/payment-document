@@ -19,13 +19,17 @@ import { LayoutModule } from 'app/layout/layout.module';
 import { SampleModule } from 'app/main/sample/sample.module';
 
 const appRoutes: Routes = [
+    // {
+    //     path        : 'auth',
+    //     loadChildren: './authentication/authentication.module#AuthenticationModule'
+    // },
     {
-        path        : 'auth',
-        loadChildren: './authentication/authentication.module#AuthenticationModule'
+        path        : 'list',
+        loadChildren: './list/list.module#ListModule'
     },
     {
         path      : '**',
-        redirectTo: 'sample'
+        redirectTo: 'list'
     }
 ];
 
