@@ -1,24 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ListComponent } from './list/list.component';
+import { ListComponent } from './list.component';
 import { RouterModule } from '@angular/router';
-import {MatButtonModule} from '@angular/material/button';
-
+import { FuseSharedModule } from '@fuse/shared.module';
 
 const routes = [
-    {
-        path     : '**',
-        component: ListComponent,
-        
-    }
+  {
+      path     : '**',
+      component: ListComponent,
+      // canActivate: [AuthenGuardService]
+  }
 ];
 
 @NgModule({
   declarations: [ListComponent],
   imports: [
-    RouterModule.forChild(routes),
     CommonModule,
-    MatButtonModule
+    RouterModule.forChild(routes),
+    FuseSharedModule
   ]
 })
 export class ListModule { }

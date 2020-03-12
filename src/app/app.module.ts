@@ -28,6 +28,10 @@ const appRoutes: Routes = [
         loadChildren: './form/form.module#FormModule'
     },
     {
+        path: 'list',
+        loadChildren: './main/list/list.module#ListModule'
+    },
+    {
         path: '**',
         redirectTo: 'form'
     }
