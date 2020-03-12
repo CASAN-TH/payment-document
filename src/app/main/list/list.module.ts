@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ListComponent } from './list.component';
 import { RouterModule } from '@angular/router';
 import { FuseSharedModule } from '@fuse/shared.module';
+import {MatButtonModule} from '@angular/material/button';
 
 const routes = [
   {
@@ -17,7 +18,8 @@ const routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    FuseSharedModule
+    FuseSharedModule,
+    MatButtonModule
   ]
 })
 export class ListModule { }

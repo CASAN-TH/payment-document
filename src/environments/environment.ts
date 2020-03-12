@@ -6,7 +6,7 @@ export const environment = {
     production: false,
     hmr       : false,
     appName : 'payment-document-dev',
-    apiUrl : 'http://'
+    apiUrl : 'http://192.168.1.120:3000'
 };
 
 /*
