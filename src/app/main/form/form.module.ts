@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { FormComponent } from './form.component';
 import { RouterModule } from '@angular/router';
 
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FuseSharedModule } from '@fuse/shared.module';
-import { MatIconModule } from '@angular/material';
+import { MatIconModule, MatDatepickerModule, MatInputModule } from '@angular/material';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRadioModule } from '@angular/material/radio';
 
 const routes = [
   {
@@ -21,10 +22,13 @@ const routes = [
     CommonModule,
     RouterModule.forChild(routes),
 
-    MatFormFieldModule,
     FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
     ReactiveFormsModule,
     MatIconModule,
+    MatDatepickerModule,
+    MatRadioModule,
 
     FuseSharedModule
   ]

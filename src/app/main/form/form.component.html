@@ -1,0 +1,104 @@
+<div class="page-layout blank p-24" fusePerfectScrollbar>
+
+  <div fxLayout="column">
+
+    <form>
+      <div fxLayout="row" fxLayoutAlign="start" class="pl-20 pr-16">
+        <mat-form-field color="accent" appearance="outline" fxFlex>
+          <mat-label>วันที่</mat-label>
+          <input matInput [matDatepicker]="picker1">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center" class="pl-20 pr-16">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>ชื่อ-นามสกุล</mat-label>
+            <input matInput>
+          </mat-form-field>
+        </div>
+        <div fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center" class="pl-20 pr-16">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>เลขประจำตัวประชาชน</mat-label>
+            <input matInput>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="center" class="pl-20 pr-16">
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>ที่อยู่ตามบัตร</mat-label>
+          <input matInput>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center" class="pl-20 pr-16">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>รายการชื่อ</mat-label>
+            <input matInput>
+          </mat-form-field>
+        </div>
+        <div fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center" class="pl-20 pr-16">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>จำนวนเงิน</mat-label>
+            <input matInput>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="start" class="pl-20 pr-16">
+        รายการ(+)
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center" class="pl-20 pr-16">
+          <mat-label>รวมเงิน</mat-label>
+        </div>
+        <div fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center" class="pl-20 pr-16">
+          <mat-form-field appearance="outline" fxFlex>
+            <input matInput>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="start" class="pl-20 pr-16">
+        ประเภทรายการ
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="start" class="pl-20 pr-16">
+        <mat-radio-group aria-label="Select an option">
+          <mat-radio-button value="1">Option 1</mat-radio-button>
+          <mat-radio-button value="2">Option 2</mat-radio-button>
+          <mat-radio-button value="2">Option 3</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="100" fxFlex.gt-sm="30" fxLayoutAlign="center" class="pl-20 pr-16">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>รายการชื่อ</mat-label>
+            <input matInput>
+          </mat-form-field>
+        </div>
+        <div fxFlex="100" fxFlex.gt-sm="30" fxLayoutAlign="center" class="pl-20 pr-16">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>จำนวนเงิน</mat-label>
+            <input matInput>
+          </mat-form-field>
+        </div>
+        <div fxFlex="100" fxFlex.gt-sm="30" fxLayoutAlign="center" class="pl-20 pr-16">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>จำนวนเงิน</mat-label>
+            <input matInput>
+          </mat-form-field>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
