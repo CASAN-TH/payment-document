@@ -25,7 +25,7 @@ const appRoutes: Routes = [
     // },
     {
         path: 'form',
-        loadChildren: './form/form.module#FormModule'
+        loadChildren: './main/form/form.module#FormModule'
     },
     {
         path: '**',
