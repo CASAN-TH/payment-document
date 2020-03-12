@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FuseSharedModule } from '@fuse/shared.module';
-import { MatIconModule, MatDatepickerModule, MatInputModule } from '@angular/material';
+import { MatIconModule, MatDatepickerModule, MatInputModule, MatButtonModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRadioModule } from '@angular/material/radio';
 
@@ -29,6 +29,7 @@ const routes = [
     MatIconModule,
     MatDatepickerModule,
     MatRadioModule,
+    MatButtonModule,
 
     FuseSharedModule
   ]

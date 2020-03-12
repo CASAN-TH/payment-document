@@ -2,13 +2,13 @@
 
   <div fxLayout="column">
 
-    <form>
+    <form [formGroup]="paymentForm">
       <div fxLayout="row" fxLayoutAlign="start" class="pl-20 pr-16">
         <mat-form-field color="accent" appearance="outline" fxFlex>
           <mat-label>วันที่</mat-label>
-          <input matInput [matDatepicker]="picker1">
-          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-          <mat-datepicker #picker1></mat-datepicker>
+          <input matInput [matDatepicker]="startDate" formControlName="date">
+          <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+          <mat-datepicker #startDate></mat-datepicker>
         </mat-form-field>
       </div>
 
@@ -16,13 +16,13 @@
         <div fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center" class="pl-20 pr-16">
           <mat-form-field appearance="outline" fxFlex>
             <mat-label>ชื่อ-นามสกุล</mat-label>
-            <input matInput>
+            <input matInput formControlName="name">
           </mat-form-field>
         </div>
         <div fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center" class="pl-20 pr-16">
           <mat-form-field appearance="outline" fxFlex>
             <mat-label>เลขประจำตัวประชาชน</mat-label>
-            <input matInput>
+            <input matInput formControlName="card_id">
           </mat-form-field>
         </div>
       </div>
@@ -30,7 +30,7 @@
       <div fxLayout="row" fxLayoutAlign="center" class="pl-20 pr-16">
         <mat-form-field appearance="outline" fxFlex>
           <mat-label>ที่อยู่ตามบัตร</mat-label>
-          <input matInput>
+          <input matInput formControlName="address">
         </mat-form-field>
       </div>
 
@@ -38,19 +38,19 @@
         <div fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center" class="pl-20 pr-16">
           <mat-form-field appearance="outline" fxFlex>
             <mat-label>รายการชื่อ</mat-label>
-            <input matInput>
+            <input matInput formControlName="description" name="description">
           </mat-form-field>
         </div>
         <div fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center" class="pl-20 pr-16">
           <mat-form-field appearance="outline" fxFlex>
             <mat-label>จำนวนเงิน</mat-label>
-            <input matInput>
+            <input matInput formControlName="amount" name="amount">
           </mat-form-field>
         </div>
       </div>
 
       <div fxLayout="row" fxLayoutAlign="start" class="pl-20 pr-16">
-        รายการ(+)
+        <mat-label (click)="onadd()">รายการ(+)</mat-label>
       </div>
 
       <div fxLayout="row" fxLayoutAlign="center">
@@ -59,45 +59,82 @@
         </div>
         <div fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center" class="pl-20 pr-16">
           <mat-form-field appearance="outline" fxFlex>
-            <input matInput>
+            <input matInput formControlName="total">
           </mat-form-field>
         </div>
       </div>
 
-      <div fxLayout="row" fxLayoutAlign="start" class="pl-20 pr-16">
+      <div fxLayout="row" fxLayoutAlign="start" class="pl-20 pr-16 pb-20">
         ประเภทรายการ
       </div>
 
-      <div fxLayout="row" fxLayoutAlign="start" class="pl-20 pr-16">
+      <!-- <div fxLayout="row" fxLayoutAlign="start" class="pl-20 pr-16 pb-20">
         <mat-radio-group aria-label="Select an option">
-          <mat-radio-button value="1">Option 1</mat-radio-button>
-          <mat-radio-button value="2">Option 2</mat-radio-button>
-          <mat-radio-button value="2">Option 3</mat-radio-button>
+          <mat-radio-button id="pay" value="เงินสด">เงินสด</mat-radio-button>
+          <mat-radio-button id="check" value="เช็ค">เช็ค</mat-radio-button>
+          <mat-radio-button id="tranfer" value="โอนเงิน">โอนเงิน</mat-radio-button>
+        </mat-radio-group>
+      </div> -->
+      <div fxLayout="row" fxLayoutAlign="start" class="pl-20 pr-16 pb-20">
+        <mat-radio-group aria-label="Select an option" formControlName="pay_type" name="pay_type">
+          <mat-radio-button *ngFor="let item of pay_type" [value]="item">
+            {{item.name}}
+          </mat-radio-button>
         </mat-radio-group>
       </div>
 
-      <div fxLayout="row" fxLayoutAlign="center">
-        <div fxFlex="100" fxFlex.gt-sm="30" fxLayoutAlign="center" class="pl-20 pr-16">
+      <div fxLayout="row" fxLayoutAlign="center" *ngIf="paymentData.pay_type.sound === 'check'">
+        <div fxFlex="100" fxFlex.gt-sm="33" fxLayoutAlign="center" class="pl-20 pr-16">
           <mat-form-field appearance="outline" fxFlex>
-            <mat-label>รายการชื่อ</mat-label>
-            <input matInput>
+            <mat-label>ธนาคาร</mat-label>
+            <input matInput formControlName="banking" name="banking">
           </mat-form-field>
         </div>
-        <div fxFlex="100" fxFlex.gt-sm="30" fxLayoutAlign="center" class="pl-20 pr-16">
+        <div fxFlex="100" fxFlex.gt-sm="33" fxLayoutAlign="center" class="pl-20 pr-16">
           <mat-form-field appearance="outline" fxFlex>
-            <mat-label>จำนวนเงิน</mat-label>
-            <input matInput>
+            <mat-label>เลขที่เช็ค</mat-label>
+            <input matInput formControlName="pay_no" name="pay_no">
           </mat-form-field>
         </div>
-        <div fxFlex="100" fxFlex.gt-sm="30" fxLayoutAlign="center" class="pl-20 pr-16">
+        <div fxFlex="100" fxFlex.gt-sm="33" fxLayoutAlign="center" class="pl-20 pr-16">
           <mat-form-field appearance="outline" fxFlex>
-            <mat-label>จำนวนเงิน</mat-label>
-            <input matInput>
+            <mat-label>วันที่และเวลา</mat-label>
+            <input matInput formControlName="date" name="date">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="center" *ngIf="paymentData.pay_type.sound === 'tranfer'">
+        <div fxFlex="100" fxFlex.gt-sm="33" fxLayoutAlign="center" class="pl-20 pr-16">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>ธนาคาร</mat-label>
+            <input matInput formControlName="banking" name="banking">
+          </mat-form-field>
+        </div>
+        <div fxFlex="100" fxFlex.gt-sm="33" fxLayoutAlign="center" class="pl-20 pr-16">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>เลขที่บัญชี</mat-label>
+            <input matInput formControlName="pay_no" name="pay_no">
+          </mat-form-field>
+        </div>
+        <div fxFlex="100" fxFlex.gt-sm="33" fxLayoutAlign="center" class="pl-20 pr-16">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>วันที่และเวลา</mat-label>
+            <input matInput formControlName="date" name="date">
           </mat-form-field>
         </div>
       </div>
 
     </form>
+
+    <div fxLayout="row" class="margin-bottom" fxLayoutAlign="center">
+      <div fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center" class="pl-20 pr-16">
+        <button mat-raised-button color="warn" (click)="oncancel()">ยกเลิก</button>
+      </div>
+      <div fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center" class="pl-20 pr-16">
+        <button mat-raised-button color="primary" (click)="onsave()">บันทึก</button>
+      </div>
+    </div>
 
   </div>
 
